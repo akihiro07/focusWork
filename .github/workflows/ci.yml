@@ -1,10 +1,12 @@
 name: ci
 
 on:
+  # push時に実行
   push:
     branches:
       - main
       - master
+  # pull request時に実行
   pull_request:
     branches:
       - main
