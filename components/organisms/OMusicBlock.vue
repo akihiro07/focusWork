@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <div>左側</div>
-
-    <o-music-block />
-  </div>
+  <div>音楽再生部分</div>
 </template>
 
 <script lang="ts">
