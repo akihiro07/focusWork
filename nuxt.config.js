@@ -9,13 +9,18 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  components: [
+    {
+      path: '@/components',
+      pathPrefix: false,
+    },
+  ],
+
   css: ['@/assets/scss/default.scss'],
 
   styleResources: { scss: ['@/assets/scss/default.scss'] },
 
   plugins: [],
-
-  components: true,
 
   buildModules: [
     '@nuxtjs/composition-api',

@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <OSidebar />
-
-    <OMusicBlock />
-  </div>
+  <div>Spotify Timer</div>
 </template>
 
 <script lang="ts">
