@@ -1,11 +1,17 @@
 <template>
-  <div>
-    <div>Spotify Timer</div>
+  <div :class="$style.wrapper">
+    <div :class="$style.topBlock">
+      <div :class="$style.title">Spotify Timer</div>
 
-    <div>Login</div>
+      <a-button el="button" :class="$style.buttonComponent">
+        Login
+      </a-button>
+    </div>
 
     <!-- timer components -->
-    <MTimer />
+    <div :class="$style.bottomBlock">
+      <MTimer />
+    </div>
   </div>
 </template>
 
@@ -18,3 +24,23 @@ export default defineComponent({
   },
 })
 </script>
+
+<style lang="scss" module>
+.wrapper {
+  background-color: $bg-secondary;
+  text-align: center;
+  display: grid;
+  padding: 25px 15px;
+}
+
+.title {
+  color: $green;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.buttonComponent {
+  margin-top: 3.125rem;
+  width: 67%;
+}
+</style>
