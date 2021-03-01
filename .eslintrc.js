@@ -8,10 +8,14 @@ module.exports = {
     '@nuxtjs/eslint-config-typescript',
     'prettier',
     'prettier/vue',
-    'plugin:prettier/recommended',
     'plugin:nuxt/recommended',
   ],
-  plugins: ['prettier'],
+  plugins: [],
   // add your custom rules here
-  rules: {},
+  rules: {
+    'vue/singleline-html-element-content-newline': 0,
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 1,
+    'comma-dangle': true
+  },
 }
