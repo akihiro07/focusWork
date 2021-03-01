@@ -1,11 +1,6 @@
 <template>
   <div>
-    <div>Spotify Timer</div>
-
-    <div>Login</div>
-
-    <!-- timer components -->
-    <MTimer />
+    timer
   </div>
 </template>
 
@@ -13,8 +8,12 @@
 import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  setup() {
+  setup () {
     return {}
-  },
+  }
 })
 </script>
+
+<style scoped>
+
+</style>

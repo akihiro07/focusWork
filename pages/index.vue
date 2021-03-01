@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <OSidebar />
+  <div :class="$style.wrapper">
+    <OSidebar  />
 
     <OMusicBlock />
   </div>
@@ -15,3 +15,10 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="scss" module>
+.wrapper {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+</style>

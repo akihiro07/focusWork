@@ -1,11 +1,12 @@
 <template>
-  <div class="min-h-screen" :class="$style.background">
+  <div :class="$style.layout">
     <Nuxt />
   </div>
 </template>
 
 <style lang="scss" module>
-.background {
+.layout {
+  min-height: 100vh;
   background-color: $bg-primary;
 }
 </style>

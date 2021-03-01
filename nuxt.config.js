@@ -24,8 +24,7 @@ export default {
 
   buildModules: [
     '@nuxtjs/composition-api',
-    '@nuxt/typescript-build',
-    '@nuxtjs/tailwindcss',
+    '@nuxt/typescript-build'
   ],
 
   modules: ['@nuxtjs/style-resources', '@nuxtjs/axios', '@nuxtjs/pwa'],
