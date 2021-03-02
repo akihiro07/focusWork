@@ -27,12 +27,13 @@ export default defineComponent({
 
 <style lang="scss" module>
 .button {
-  color: $white;
   background-color: $green;
+  border-radius: 25px;
+  color: $white;
   font-size: 1.5rem;
   font-weight: 700;
-  padding: 7px 20px;
-  border-radius: 25px;
+  padding: 8px 15px;
+  white-space: nowrap;
 
   &:hover {
     cursor: pointer;

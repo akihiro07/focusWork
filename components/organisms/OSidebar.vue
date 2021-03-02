@@ -31,10 +31,11 @@ export default defineComponent({
   background-color: $bg-secondary;
   text-align: center;
   display: grid;
-  padding: 25px 15px;
+  padding: 25px 15px 40px;
 }
 
 .title {
+  text-align: left;
   color: $green;
   font-size: 1.75rem;
   font-weight: 700;
@@ -42,6 +43,10 @@ export default defineComponent({
 
 .buttonComponent {
   margin-top: 3.125rem;
-  width: 67%;
+  width: 75%;
+}
+
+.bottomBlock {
+  margin: auto 0 0;
 }
 </style>
