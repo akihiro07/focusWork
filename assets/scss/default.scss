@@ -1,5 +1,5 @@
-@import "variable";
-
+@import 'variable';
+@import '~assets/icomoon/style.css';
 
 html {
   -ms-text-size-adjust: 100%;
@@ -17,7 +17,7 @@ body {
   line-height: 1;
 }
 
-input[type="number"] {
+input[type='number'] {
   -moz-appearance: textfield;
 
   &::-webkit-outer-spin-button,
@@ -44,5 +44,6 @@ ol {
 
 button {
   border: none;
+  padding: 0;
   outline: none;
 }

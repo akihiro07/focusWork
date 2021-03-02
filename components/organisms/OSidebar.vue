@@ -1,5 +1,6 @@
 <template>
   <div :class="$style.wrapper">
+    <!-- タイトル＆ログイン部分 -->
     <div :class="$style.topBlock">
       <div :class="$style.title">Spotify Timer</div>
 
@@ -8,7 +9,7 @@
       </a-button>
     </div>
 
-    <!-- timer components -->
+    <!-- タイマー部分 -->
     <div :class="$style.bottomBlock">
       <MTimer />
     </div>

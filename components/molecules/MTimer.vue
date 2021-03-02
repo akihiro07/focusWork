@@ -1,15 +1,20 @@
 <template>
   <div>
-    Timer
+    <div>timer</div>
+
+    <div>
+      <div>25:00</div>
+
+      <div class="iconTimerStart" />
+      <div class="iconTimerReload" />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import AButton from '../atoms/AButton.vue'
 
 export default defineComponent({
-  components: { AButton },
   setup () {
     return {}
   }
@@ -17,5 +22,4 @@ export default defineComponent({
 </script>
 
 <style lang="scss" module>
-
 </style>
