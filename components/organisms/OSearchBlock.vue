@@ -1,6 +1,6 @@
 <template>
   <div style="background-color: blue;">
-    <div>Search</div>
+    <ATitle>Search</ATitle>
 
     <div>hoge</div>
 

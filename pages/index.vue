@@ -27,7 +27,9 @@ export default defineComponent({
 }
 
 .main {
+  margin: 3.125rem 2.8125rem 1.875rem;
   display: grid;
+  grid-column-gap: 5.625rem;
   grid-template-columns: 1fr 1fr;
 }
 </style>

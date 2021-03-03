@@ -2,6 +2,7 @@
 @import '~assets/icomoon/style.css';
 
 html {
+  overflow-x: scroll;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
@@ -17,6 +18,34 @@ body {
   line-height: 1;
 }
 
+input,
+label,
+select,
+textarea,
+li,
+dl,
+p,
+h1,
+h2,
+h3,
+h4 {
+  font-feature-settings: 'palt', 1;
+  letter-spacing: 0.02em;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  outline: none;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+[type='reset'],
+[type='submit'],
+button,
+html [type='button'] {
+  appearance: none;
+}
 input[type='number'] {
   -moz-appearance: textfield;
 
@@ -46,4 +75,9 @@ button {
   border: none;
   padding: 0;
   outline: none;
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
 }

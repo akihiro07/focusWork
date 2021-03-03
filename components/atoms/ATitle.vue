@@ -1,11 +1,5 @@
 <template>
-  <div style="background-color: red;">
-    <ATitle>PlayList</ATitle>
-
-    <MInput text="Save" />
-
-    <div>block</div>
-  </div>
+  <h2 :class="$style.title"><slot /></h2>
 </template>
 
 <script lang="ts">
@@ -17,3 +11,10 @@ export default defineComponent({
   },
 })
 </script>
+
+<style lang="scss" module>
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+</style>
