@@ -2,7 +2,10 @@
   <div :class="$style.wrapper">
     <OSidebar  />
 
-    <OMusicBlock />
+    <div :class="$style.main">
+      <OListBlock />
+      <OSearchBlock />
+    </div>
   </div>
 </template>
 
@@ -21,5 +24,10 @@ export default defineComponent({
   display: grid;
   grid-template-columns: 20% 80%;
   min-height: 100vh;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 </style>

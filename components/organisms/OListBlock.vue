@@ -1,5 +1,11 @@
 <template>
-  <div>音楽再生部分</div>
+  <div style="background-color: red;">
+    <div>PlayList</div>
+
+    <div>hoge</div>
+
+    <div>block</div>
+  </div>
 </template>
 
 <script lang="ts">
