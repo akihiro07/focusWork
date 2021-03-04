@@ -28,7 +28,7 @@ import { defineComponent, ref } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
-    const isHover = ref(true)
+    const isHover = ref(false)
 
     const changeHoverFlag = (flag: boolean) => {
       isHover.value = flag
