@@ -1,11 +1,11 @@
 <template>
-  <div style="background-color: blue;">
+  <div>
     <ATitle :class="$style.titleComponent">Search</ATitle>
 
-    <div>hoge</div>
+    <MInput :class="$style.inputBox" text="search" />
 
 
-    <div>block</div>
+    <div :class="$style.contentBox">block</div>
   </div>
 </template>
 
@@ -22,5 +22,20 @@ export default defineComponent({
 <style lang="scss" module>
 .titleComponent {
   text-align: center;
+}
+
+.inputBox {
+  margin-top: 1.625rem;
+}
+
+.contentBox {
+  margin-top: 1rem;
+  background-color: $bg-secondary;
+  color: $white;
+  border: 1px solid $border;
+  padding: 1.25rem 0.75rem;
+  font-size: 0.875rem;
+  display: grid;
+  grid-row-gap: 0.75rem;
 }
 </style>

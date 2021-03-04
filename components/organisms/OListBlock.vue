@@ -2,7 +2,7 @@
   <div>
     <ATitle :class="$style.titleComponent">PlayList</ATitle>
 
-    <MInput text="save" />
+    <MInput :class="$style.inputBox" text="save" />
 
     <div :class="$style.contentBox">
       <!-- TODO:ループで回す -->
@@ -28,7 +28,12 @@ export default defineComponent({
   text-align: center;
 }
 
+.inputBox {
+  margin-top: 1.625rem;
+}
+
 .contentBox {
+  margin-top: 1rem;
   background-color: $bg-secondary;
   color: $white;
   border: 1px solid $border;
