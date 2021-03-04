@@ -1,10 +1,15 @@
 <template>
-  <div style="background-color: red;">
-    <ATitle>PlayList</ATitle>
+  <div>
+    <ATitle :class="$style.titleComponent">PlayList</ATitle>
 
-    <MInput text="Save" />
+    <MInput text="save" />
 
-    <div>block</div>
+    <div :class="$style.contentBox">
+      <!-- TODO:ループで回す -->
+      <MMusicItem />
+      <MMusicItem />
+      <MMusicItem />
+    </div>
   </div>
 </template>
 
@@ -17,3 +22,19 @@ export default defineComponent({
   },
 })
 </script>
+
+<style lang="scss" module>
+.titleComponent {
+  text-align: center;
+}
+
+.contentBox {
+  background-color: $bg-secondary;
+  color: $white;
+  border: 1px solid $border;
+  padding: 1.25rem 0.75rem;
+  font-size: 0.875rem;
+  display: grid;
+  grid-row-gap: 0.75rem;
+}
+</style>

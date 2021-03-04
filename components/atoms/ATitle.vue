@@ -14,7 +14,7 @@ export default defineComponent({
 
 <style lang="scss" module>
 .title {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
 }
 </style>

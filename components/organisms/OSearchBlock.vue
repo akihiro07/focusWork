@@ -1,6 +1,6 @@
 <template>
   <div style="background-color: blue;">
-    <ATitle>Search</ATitle>
+    <ATitle :class="$style.titleComponent">Search</ATitle>
 
     <div>hoge</div>
 
@@ -18,3 +18,9 @@ export default defineComponent({
   },
 })
 </script>
+
+<style lang="scss" module>
+.titleComponent {
+  text-align: center;
+}
+</style>

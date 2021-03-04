@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div :class="$style.wrapper">
     <input :class="$style.input" type="text">
 
-    <AButton el="button">{{ text }}</AButton>
+    <AButton el="button" size="small">{{ text }}</AButton>
   </div>
 </template>
 
@@ -24,6 +24,12 @@ export default defineComponent({
 </script>
 
 <style lang="scss" module>
+.wrapper {
+  display: grid;
+  grid-template-columns: 60% max-content;
+  grid-column-gap: 1.25rem;
+}
+
 .title {
   font-size: 1.5rem;
   font-weight: 700;
