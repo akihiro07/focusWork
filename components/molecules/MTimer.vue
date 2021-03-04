@@ -12,9 +12,9 @@
     </div>
 
     <div :class="$style.buttonsBlock">
-      <a-button el="button" :class="$style.button">Work</a-button>
-      <a-button el="button" :class="$style.button">Short Break</a-button>
-      <a-button el="button" :class="$style.button">Long Break</a-button>
+      <AButton el="button" :class="$style.button">Work</AButton>
+      <AButton el="button" :class="$style.button">Short Break</AButton>
+      <AButton el="button" :class="$style.button">Long Break</AButton>
     </div>
   </div>
 </template>

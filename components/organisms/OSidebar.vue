@@ -4,9 +4,9 @@
     <div :class="$style.topBlock">
       <div :class="$style.title">Spotify Timer</div>
 
-      <a-button el="button" :class="$style.buttonComponent">
+      <AButton el="button" :class="$style.buttonComponent">
         Login
-      </a-button>
+      </AButton>
     </div>
 
     <!-- タイマー部分 -->
