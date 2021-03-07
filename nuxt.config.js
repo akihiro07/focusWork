@@ -1,4 +1,6 @@
 export default {
+  target: 'server',
+
   head: {
     title: 'focusWork',
     meta: [
@@ -24,10 +26,11 @@ export default {
 
   buildModules: [
     '@nuxtjs/composition-api',
-    '@nuxt/typescript-build'
+    '@nuxt/typescript-build',
+    '@nuxtjs/pwa'
   ],
 
-  modules: ['@nuxtjs/style-resources', '@nuxtjs/axios', '@nuxtjs/pwa'],
+  modules: ['@nuxtjs/style-resources', '@nuxtjs/axios'],
 
   axios: {},
 

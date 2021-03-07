@@ -5,7 +5,12 @@
     <MInput :class="$style.inputBox" text="search" />
 
 
-    <div :class="$style.contentBox">block</div>
+    <div :class="$style.contentBox">
+      <!-- TODO:ループで回す -->
+      <MMusicItem />
+      <MMusicItem />
+      <MMusicItem />
+    </div>
   </div>
 </template>
 
