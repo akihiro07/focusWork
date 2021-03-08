@@ -4,7 +4,7 @@
     <div :class="$style.topBlock">
       <div :class="$style.title">Spotify Timer</div>
 
-      <AButton el="button" :class="$style.buttonComponent">
+      <AButton el="button" :click="login" :class="$style.buttonComponent">
         Login
       </AButton>
     </div>
@@ -21,7 +21,12 @@ import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
-    return {}
+    const login = () => {
+      console.log("Login!!")
+    }
+    return {
+      login
+    }
   },
 })
 </script>
