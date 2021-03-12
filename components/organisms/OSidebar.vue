@@ -17,12 +17,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, useContext } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
+    const { app } = useContext()
     const login = () => {
-      console.log("Login!!")
+      const CLIENT_ID = process.env.clientId as string
+      const REDIRECT_URL = process.env.baseUrl as string
+
+      const url = new URL('https://accounts.spotify.com/authorize')
+      url.searchParams.append('client_id', CLIENT_ID)
+      url.searchParams.append('response_type', 'code')
+      url.searchParams.append('redirect_uri', REDIRECT_URL)
+      location.href = url.href
     }
     return {
       login
