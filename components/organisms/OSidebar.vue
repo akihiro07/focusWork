@@ -23,12 +23,16 @@ export default defineComponent({
   setup() {
     const { app } = useContext()
     const login = () => {
+      const scopes = ['streaming', 'user-read-email', 'user-read-private', 'playlist-modify-public', 'playlist-modify-private']
       const CLIENT_ID = process.env.clientId as string
-      const REDIRECT_URL = process.env.baseUrl as string
+      const REDIRECT_URL = `${process.env.baseUrl}/authentication/`
+      const ramdomString = Math.random().toString(36).slice(-8)
 
       const url = new URL('https://accounts.spotify.com/authorize')
       url.searchParams.append('client_id', CLIENT_ID)
       url.searchParams.append('response_type', 'code')
+      url.searchParams.append('state', ramdomString)
+      url.searchParams.append('scope', scopes.join(' '))
       url.searchParams.append('redirect_uri', REDIRECT_URL)
       location.href = url.href
     }
