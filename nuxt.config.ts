@@ -21,7 +21,7 @@ export default defineNuxtConfig({
   ],
 
   env: {
-    baseUrl: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000',
+    baseUrl: process.env.BASE_URL || `https://${process.env.VERCEL_URL}`,
     clientId: process.env.CLIENT_ID as string,
     clientSecret: process.env.CLIENT_SECRET as string
   },
@@ -39,17 +39,9 @@ export default defineNuxtConfig({
     '@nuxtjs/pwa'
   ],
 
-  modules: ['@nuxtjs/style-resources', '@nuxtjs/axios', '@nuxtjs/proxy'],
+  modules: ['@nuxtjs/style-resources', '@nuxtjs/axios'],
 
   axios: {
-    proxy: true
-  },
-
-  proxy: {
-    '/spotify/': {
-      target: 'https://accounts.spotify.com',
-      pathRewrite: {'^/spotify/': ''}
-    }
   },
 
   pwa: {
@@ -59,4 +51,8 @@ export default defineNuxtConfig({
   },
 
   build: {},
+
+  serverMiddleware: [
+    { path: '/api', handler: '@/api' },
+  ]
 })

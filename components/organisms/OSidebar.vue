@@ -25,7 +25,7 @@ export default defineComponent({
     const login = () => {
       const scopes = ['streaming', 'user-read-email', 'user-read-private', 'playlist-modify-public', 'playlist-modify-private']
       const CLIENT_ID = process.env.clientId as string
-      const REDIRECT_URL = `${process.env.baseUrl}/authentication/`
+      const REDIRECT_URL = `${process.env.baseUrl}/api/authentication`
       const ramdomString = Math.random().toString(36).slice(-8)
 
       const url = new URL('https://accounts.spotify.com/authorize')
