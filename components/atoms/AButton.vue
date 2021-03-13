@@ -1,5 +1,5 @@
 <template>
-  <button v-if="el === 'button'" :class="[$style.button, $style[size]]">
+  <button v-if="el === 'button'" :class="[$style.button, $style[size]]" @click="click()">
     <slot />
   </button>
 
@@ -21,6 +21,11 @@ export default defineComponent({
     size: {
       type: String,
       default: 'medium'
+    },
+
+    click: {
+      type: Function,
+      default: () => {}
     }
   },
 
