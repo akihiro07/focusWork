@@ -56,6 +56,10 @@ const authentication = async (req: IncomingMessage, res: ServerResponse, code: s
       }
     )
 
+    const expiresIn = 60 * 60 * 24 * 7 // 7 days
+    const cookie = `ACCESS_TOKEN=${response.data.access_token}; Max-Age=${expiresIn}; Path=/; SameSite=Strict; HttpOnly;`
+    res.setHeader('Set-Cookie', cookie)
+
     res.setHeader('location', `${schema}${host}`)
     res.statusCode = 302
   } catch (error) {
