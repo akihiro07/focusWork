@@ -20,7 +20,7 @@
     "core-js": "3.9.0",
     "node-sass": "5.0.0",
     "nuxt": "2.15.2",
-    "sass-loader": "10.1.1",
+    "sass-loader": "11.0.1",
     "spotify-web-api-node": "^5.0.2",
     "spotify-web-api-ts": "1.4.5"
   },
