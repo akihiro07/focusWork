@@ -17,7 +17,7 @@
     "@nuxtjs/composition-api": "0.20.2",
     "@nuxtjs/pwa": "3.3.5",
     "@types/spotify-web-api-node": "^5.0.2",
-    "core-js": "3.9.0",
+    "core-js": "3.9.1",
     "node-sass": "5.0.0",
     "nuxt": "2.15.2",
     "sass-loader": "10.1.1",
