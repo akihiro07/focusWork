@@ -5,16 +5,26 @@
     <div :class="$style.main">
       <OListBlock />
       <OSearchBlock />
+
+      <button @click="test()">click</button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, useContext } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
-    return {}
+    const { app } = useContext()
+
+    const test = () => {
+      app.$axios.$get('/api/reccomendList')
+    }
+
+    return {
+      test
+    }
   }
 })
 </script>

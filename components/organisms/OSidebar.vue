@@ -21,9 +21,8 @@ import { defineComponent, useContext } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
-    const { app } = useContext()
     const login = () => {
-      const scopes = ['streaming', 'user-read-email', 'user-read-private', 'playlist-modify-public', 'playlist-modify-private']
+      const scopes = ['user-read-email', 'user-read-private']
       const CLIENT_ID = process.env.clientId as string
       const REDIRECT_URL = `${process.env.baseUrl}/api/authentication`
       const ramdomString = Math.random().toString(36).slice(-8)
@@ -32,10 +31,12 @@ export default defineComponent({
       url.searchParams.append('client_id', CLIENT_ID)
       url.searchParams.append('response_type', 'code')
       url.searchParams.append('state', ramdomString)
-      url.searchParams.append('scope', scopes.join(' '))
       url.searchParams.append('redirect_uri', REDIRECT_URL)
+      url.searchParams.append('scope', scopes.join(' '))
+      url.searchParams.append('show_dialog', 'true')
       location.href = url.href
     }
+
     return {
       login
     }
