@@ -21,9 +21,9 @@ export default defineNuxtConfig({
   ],
 
   env: {
-    baseUrl: process.env.BASE_URL || `https://${process.env.VERCEL_URL}`,
-    clientId: process.env.CLIENT_ID as string,
-    clientSecret: process.env.CLIENT_SECRET as string
+    BASE_URL: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : (process.env.BASE_URL as string),
+    CLIENT_ID: process.env.CLIENT_ID as string,
+    CLIENT_SECRET: process.env.CLIENT_SECRET as string
   },
 
   css: ['@/assets/scss/default.scss'],

@@ -21,10 +21,11 @@ import { defineComponent, useContext } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
+    // ログイン(認証コードを取得する画面表示)
     const login = () => {
       const scopes = ['user-read-email', 'user-read-private']
-      const CLIENT_ID = process.env.clientId as string
-      const REDIRECT_URL = `${process.env.baseUrl}/api/authentication`
+      const CLIENT_ID = process.env.CLIENT_ID as string
+      const REDIRECT_URL = `${process.env.BASE_URL}/api/authentication`
       const ramdomString = Math.random().toString(36).slice(-8)
 
       const url = new URL('https://accounts.spotify.com/authorize')

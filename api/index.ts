@@ -6,7 +6,8 @@ import SpotifyWebApi from 'spotify-web-api-node'
 const credentials = {
   clientId: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
-  redirectUri: 'http://localhost:3000/api/authentication'
+  // TODO:環境変数が使用できる様に解決する
+  redirectUri: `http://localhost:3000/api/authentication`
 };
 const spotifyApi = new SpotifyWebApi(credentials)
 
@@ -71,9 +72,9 @@ const authentication = async (req: IncomingMessage, res: ServerResponse, code: s
     //     }
     //   }
     // )
+    // const cookie = `ACCESS_TOKEN=${response.data.access_token}; Max-Age=${expiresIn}; Path=/; SameSite=Strict; HttpOnly;`
 
     const cookie = `ACCESS_TOKEN=${accesToken}; Max-Age=${expiresIn}; Path=/; SameSite=Strict; HttpOnly;`
-    // const cookie = `ACCESS_TOKEN=${response.data.access_token}; Max-Age=${expiresIn}; Path=/; SameSite=Strict; HttpOnly;`
     res.setHeader('Set-Cookie', cookie)
 
     res.setHeader('location', `${schema}${host}`)
