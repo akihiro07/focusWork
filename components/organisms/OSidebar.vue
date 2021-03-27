@@ -23,7 +23,7 @@ export default defineComponent({
   setup() {
     // ログイン(認証コードを取得する画面表示)
     const login = () => {
-      const scopes = ['user-read-email', 'user-read-private']
+      const scopes = ['user-read-email', 'user-read-private', 'user-read-currently-playing', 'user-read-private', 'user-top-read', 'playlist-modify-public', 'playlist-modify-private', 'user-read-playback-state']
       const CLIENT_ID = process.env.CLIENT_ID as string
       const REDIRECT_URL = `${process.env.BASE_URL}/api/authentication`
       const ramdomString = Math.random().toString(36).slice(-8)

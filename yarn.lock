@@ -10256,14 +10256,6 @@ spotify-web-api-node@5.0.2:
   dependencies:
     superagent "^6.1.0"
 
-spotify-web-api-ts@1.4.5:
-  version "1.4.5"
-  resolved "https://registry.yarnpkg.com/spotify-web-api-ts/-/spotify-web-api-ts-1.4.5.tgz#4a3fd1c0597807580cf89cc4ad3861304a611145"
-  integrity sha512-IBX7xQMnLqsJJo+pKRqA3qcATA00W6ZDMIXOKZ3hCFdI380vG36FLNNm2qq62/mKRERQpP1ybp+POMqOjza0Jg==
-  dependencies:
-    axios "^0.21.1"
-    qs "^6.9.4"
-
 sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
