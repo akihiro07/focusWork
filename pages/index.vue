@@ -18,8 +18,9 @@ export default defineComponent({
   setup() {
     const { app } = useContext()
 
-    const test = () => {
-      app.$axios.$get('/api/reccomendList')
+    const test = async () => {
+      const recommendTraks = await app.$axios.$get('/api/reccomendList')
+      console.log(recommendTraks)
     }
 
     return {

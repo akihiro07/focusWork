@@ -1,6 +1,5 @@
 import { IncomingMessage, ServerResponse } from "http"
 import url from "url"
-import axios from "axios"
 import SpotifyWebApi from 'spotify-web-api-node'
 
 const credentials = {
@@ -31,14 +30,6 @@ export default ((req: IncomingMessage, res: ServerResponse) => {
   }
 })
 
-type SpotifyAuthenticationRes = {
-    access_token: string,
-    token_type: string,
-    scope?: string,
-    expires_in: number,
-    refresh_token?: string
-}
-
 const authentication = async (req: IncomingMessage, res: ServerResponse, code: string) => {
   try {
     const data = await spotifyApi.authorizationCodeGrant(code)
@@ -61,11 +52,14 @@ const reccomendList = async (req: IncomingMessage, res: ServerResponse) => {
   try {
     const jpopBest50 = '37i9dQZF1DXafb0IuPwJyF'
     const response = await spotifyApi.getPlaylist(jpopBest50)
-    console.log(response.body)
+    const tracks = response.body.tracks.items
+
+    const tracksJson = JSON.stringify(tracks)
+    res.write(tracksJson)
+    res.statusCode = 200
+    res.end()
   } catch (error) {
     throw new Error(error)
-  } finally {
-    res.end()
   }
 }
 
