@@ -24,7 +24,13 @@ export default defineComponent({
         console.log('recommendTraks', recommendTraks)
       } catch (error) {
         const { response } = error
-        console.error(`status:${response.status} (${response.data.error.message})`)
+        // 存在しないファイルを叩いた場合(問題:エンドポントが存在しなくてもerrorにならない)
+        if (response.status === 404) {
+          console.error(error)
+        } else {
+          const responseError = response.data.error
+          console.error(`status:${responseError.status} (${responseError.message})`)
+        }
       }
     }
 
