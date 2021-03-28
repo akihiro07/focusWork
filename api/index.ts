@@ -59,7 +59,16 @@ const reccomendList = async (req: IncomingMessage, res: ServerResponse) => {
     res.statusCode = 200
     res.end()
   } catch (error) {
-    throw new Error(error)
+    // サーバーサイド側での処理
+    // => ↓`throw new Error(error)`としていたけれど、catchがなかったので`console.error(error)`が正解かと
+    console.error(error)
+    
+    // エラーコードをresponse
+    res.statusCode = error.statusCode
+    // クライアント側に返す処理
+    const errors = JSON.stringify(error.body)
+    // エラー内容をresponseのbodyに追加
+    res.end(errors)
   }
 }
 

@@ -19,8 +19,13 @@ export default defineComponent({
     const { app } = useContext()
 
     const test = async () => {
-      const recommendTraks = await app.$axios.$get('/api/reccomendList')
-      console.log(recommendTraks)
+      try {
+        const recommendTraks = await app.$axios.$get('/api/reccomendList')
+        console.log('recommendTraks', recommendTraks)
+      } catch (error) {
+        const { response } = error
+        console.error(`status:${response.status} (${response.data.error.message})`)
+      }
     }
 
     return {
