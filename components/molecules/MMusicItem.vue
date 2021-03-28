@@ -5,13 +5,13 @@
     @mouseleave="changeHoverFlag(false)"
   >
   <picture>
-    <img src="@/assets/images/sample.jpg" alt="" :class="$style.img" />
+    <img :src="image" alt="" :class="$style.img" />
   </picture>
 
     <div :class="$style.detail">
-      <div :class="$style.title">サヨナラのゆくえ</div>
-      <div :class="$style.artist">azure</div>
-      <div :class="$style.time">時間：4:32</div>
+      <div :class="$style.title">{{ name }}</div>
+      <div :class="$style.artist">{{ artist }}</div>
+      <div :class="$style.time">{{ timemmss }}</div>
     </div>
 
     <div :class="$style.iconBox">
@@ -25,16 +25,38 @@
 
 <script lang="ts">
 import { defineComponent, ref } from '@nuxtjs/composition-api'
+import dayjs from 'dayjs'
 
 export default defineComponent({
-  setup() {
-    const isHover = ref(false)
+  props: {
+    name: {
+      type: String,
+      required: true
+    },
+    artist: {
+      type: String,
+      required: true
+    },
+    image: {
+      type: String,
+      required: true
+    },
+    time: {
+      type: Number,
+      required: true
+    }
+  },
 
+  setup(prop) {
+    const timemmss = dayjs(prop.time).format('mm:ss')
+
+    const isHover = ref(false)
     const changeHoverFlag = (flag: boolean) => {
       isHover.value = flag
     }
 
     return {
+      timemmss,
       isHover,
       changeHoverFlag
     }

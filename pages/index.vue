@@ -4,7 +4,7 @@
 
     <div :class="$style.main">
       <OListBlock />
-      <OSearchBlock />
+      <OSearchBlock :tracks="tracks" />
 
       <button @click="test()">click</button>
     </div>
@@ -12,17 +12,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, useContext } from '@nuxtjs/composition-api'
+import { defineComponent, Ref, ref, useContext } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
     const { app } = useContext()
+    const tracks: Ref<SpotifyApi.PlaylistTrackObject[]> = ref([])
 
     const test = async () => {
       try {
-        const recommendTraks = await app.$axios.$get('/api/reccomendList')
-        console.log('recommendTraks', recommendTraks)
+        const recommendTraks: SpotifyApi.PlaylistTrackObject[] = await app.$axios.$get('/api/reccomendList')
+        tracks.value.splice(0, tracks.value.length+1, ...recommendTraks)
       } catch (error) {
+        // TODO:throw new Error()に分ける
         const { response } = error
         // 存在しないファイルを叩いた場合(問題:エンドポントが存在しなくてもerrorにならない)
         if (response.status === 404) {
@@ -35,6 +37,7 @@ export default defineComponent({
     }
 
     return {
+      tracks,
       test
     }
   }
