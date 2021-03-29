@@ -6,17 +6,30 @@
 
     <div :class="$style.contentBox">
       <!-- TODO:ループで回す -->
-      <MMusicItem />
-      <MMusicItem />
-      <MMusicItem />
+      <template v-for="item in playlistTracks">
+        <MMusicItem
+          :key="item.track.id"
+          :name="item.track.name"
+          :artist="item.track.artists[0].name"
+          :image="item.track.album.images[0].url"
+          :time="item.track.duration_ms"
+        />
+      </template>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
 
 export default defineComponent({
+  props: {
+    playlistTracks: {
+      type: Array as PropType<SpotifyApi.PlaylistTrackObject[] | []>,
+      required: true
+    }
+  },
+
   setup() {
     return {}
   },

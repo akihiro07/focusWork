@@ -1,28 +1,27 @@
 <template>
   <div :class="$style.wrapper">
-    <OSidebar  />
+    <OSidebar />
 
     <div :class="$style.main">
-      <OListBlock />
-      <OSearchBlock :tracks="tracks" />
-
-      <button @click="test()">click</button>
+      <OListBlock :playlistTracks="playlistTracks" />
+      <OSearchBlock :searchTracks="searchTracks" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, Ref, ref, useContext } from '@nuxtjs/composition-api'
+import { defineComponent, Ref, ref, useAsync, useContext } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
     const { app } = useContext()
-    const tracks: Ref<SpotifyApi.PlaylistTrackObject[]> = ref([])
+    const playlistTracks: Ref<SpotifyApi.PlaylistTrackObject[] | []> = ref([])
+    const searchTracks: Ref<SpotifyApi.PlaylistTrackObject[] | []> = ref([])
 
-    const test = async () => {
+    useAsync(async() => {
       try {
         const recommendTraks: SpotifyApi.PlaylistTrackObject[] = await app.$axios.$get('/api/reccomendList')
-        tracks.value.splice(0, tracks.value.length+1, ...recommendTraks)
+        searchTracks.value.splice(0, searchTracks.value.length+1, ...recommendTraks)
       } catch (error) {
         // TODO:throw new Error()に分ける
         const { response } = error
@@ -34,11 +33,11 @@ export default defineComponent({
           console.error(`status:${responseError.status} (${responseError.message})`)
         }
       }
-    }
+    })
 
     return {
-      tracks,
-      test
+      playlistTracks,
+      searchTracks
     }
   }
 })

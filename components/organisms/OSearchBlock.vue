@@ -5,7 +5,7 @@
     <MInput :class="$style.inputBox" text="search" />
 
     <div :class="$style.contentBox">
-      <template v-for="item in tracks">
+      <template v-for="item in searchTracks">
         <MMusicItem
           :key="item.track.id"
           :name="item.track.name"
@@ -23,8 +23,8 @@ import { defineComponent, PropType } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
-    tracks: {
-      type: Array as PropType<SpotifyApi.PlaylistTrackObject[]>,
+    searchTracks: {
+      type: Array as PropType<SpotifyApi.PlaylistTrackObject[] | []>,
       required: true
     }
   },
@@ -45,6 +45,8 @@ export default defineComponent({
 }
 
 .contentBox {
+  max-height: calc(100vh - 14rem);
+  overflow: scroll;
   margin-top: 1rem;
   background-color: $bg-secondary;
   color: $white;
