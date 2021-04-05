@@ -9,6 +9,7 @@
       <template v-for="item in playlistTracks">
         <MMusicItem
           :key="item.track.id"
+          :isPlaylist="isPlaylist"
           :name="item.track.name"
           :artist="item.track.artists[0].name"
           :image="item.track.album.images[0].url"
@@ -27,6 +28,10 @@ export default defineComponent({
     playlistTracks: {
       type: Array as PropType<SpotifyApi.PlaylistTrackObject[] | []>,
       required: true
+    },
+    isPlaylist: {
+      type: Boolean,
+      default: false
     }
   },
 

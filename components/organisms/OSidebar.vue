@@ -17,13 +17,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, useContext } from '@nuxtjs/composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
     // ログイン(認証コードを取得する画面表示)
     const login = () => {
-      const scopes = ['user-read-email', 'user-read-private', 'user-read-currently-playing', 'user-read-private', 'user-top-read', 'playlist-modify-public', 'playlist-modify-private', 'user-read-playback-state']
+      const scopes = [
+        'user-read-email',
+        'user-read-private',
+        'streaming', // Web Playback SDKに必須
+        'user-modify-playback-state', // 再生・停止をコントロール
+        'playlist-modify-public', // パブリックプレイリストへの書き込み
+        'playlist-modify-private', // プライベートプレイリストへの書き込み
+        'user-read-playback-state'
+      ]
       const CLIENT_ID = process.env.CLIENT_ID as string
       const REDIRECT_URL = `${process.env.BASE_URL}/api/authentication`
       const ramdomString = Math.random().toString(36).slice(-8)

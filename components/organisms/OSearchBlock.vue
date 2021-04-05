@@ -7,11 +7,13 @@
     <div :class="$style.contentBox">
       <template v-for="item in searchTracks">
         <MMusicItem
+          :isPlaylist="isPlaylist"
           :key="item.track.id"
           :name="item.track.name"
           :artist="item.track.artists[0].name"
           :image="item.track.album.images[0].url"
           :time="item.track.duration_ms"
+          :playbackFunc="playbackFunc"
         />
       </template>
     </div>
@@ -26,6 +28,14 @@ export default defineComponent({
     searchTracks: {
       type: Array as PropType<SpotifyApi.PlaylistTrackObject[] | []>,
       required: true
+    },
+    playbackFunc: {
+      type: Function,
+      default: () => {}
+    },
+    isPlaylist: {
+      type: Boolean,
+      default: false
     }
   },
 

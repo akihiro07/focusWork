@@ -15,11 +15,11 @@
     </div>
 
     <div :class="$style.iconBox">
-      <div class="iconTimerStart" :class="$style.startIcon" />
+      <div class="iconTimerStart" :class="$style.startIcon" @click="playbackFunc" />
     </div>
 
     <!-- hover時表示 -->
-    <div v-if="isHover" :class="$style.remove">×</div>
+    <div v-if="isPlaylist && isHover" :class="$style.remove">×</div>
   </div>
 </template>
 
@@ -44,6 +44,14 @@ export default defineComponent({
     time: {
       type: Number,
       required: true
+    },
+    isPlaylist: {
+      type: Boolean,
+      default: false
+    },
+    playbackFunc: {
+      type: Function,
+      default: () => {}
     }
   },
 
@@ -98,6 +106,10 @@ export default defineComponent({
 
 .startIcon {
   font-size: 1.625rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .remove {

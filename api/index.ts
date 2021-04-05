@@ -37,6 +37,12 @@ const authentication = async (req: IncomingMessage, res: ServerResponse, code: s
     // アクセストークンをセット
     await spotifyApi.setAccessToken(accesToken)
 
+    // クライアントのセッション用cookie
+  　const expiresIn = data.body['expires_in']
+    // const cookie = `ACCESS_TOKEN=${accesToken}; Max-Age=${expiresIn}; Path=/; SameSite=Strict; HttpOnly;`
+    const cookie = `ACCESS_TOKEN=${accesToken}; Max-Age=${expiresIn}; Path=/; SameSite=Strict;`
+    res.setHeader('Set-Cookie', cookie)
+
     const host = req.headers.host as string
     const schema = (host === 'localhost:3000') ? 'http://' : 'https://'
     res.setHeader('location', `${schema}${host}`)

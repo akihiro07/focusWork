@@ -11,6 +11,9 @@ export default defineNuxtConfig({
       { hid: 'description', name: 'description', content: '' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      { src: 'https://sdk.scdn.co/spotify-player.js', body: true }
+    ]
   },
 
   components: [

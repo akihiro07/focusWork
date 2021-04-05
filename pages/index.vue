@@ -3,14 +3,16 @@
     <OSidebar />
 
     <div :class="$style.main">
-      <OListBlock :playlistTracks="playlistTracks" />
-      <OSearchBlock :searchTracks="searchTracks" />
+      <OListBlock :playlistTracks="playlistTracks" :isPlaylist="true" />
+      <OSearchBlock :searchTracks="searchTracks" :playbackFunc="playbackFunc" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, Ref, ref, useAsync, useContext } from '@nuxtjs/composition-api'
+import { defineComponent, onBeforeMount, onMounted, Ref, ref, useAsync, useContext } from '@nuxtjs/composition-api'
+import { SpotifyWebApi } from 'spotify-web-api-ts'
+import '@types/spotify-web-playback-sdk'
 
 export default defineComponent({
   setup() {
@@ -20,8 +22,8 @@ export default defineComponent({
 
     useAsync(async() => {
       try {
-        const recommendTraks: SpotifyApi.PlaylistTrackObject[] = await app.$axios.$get('/api/reccomendList')
-        searchTracks.value.splice(0, searchTracks.value.length+1, ...recommendTraks)
+        const recommendTracks: SpotifyApi.PlaylistTrackObject[] = await app.$axios.$get('/api/reccomendList')
+        searchTracks.value.splice(0, searchTracks.value.length+1, ...recommendTracks)
       } catch (error) {
         // TODO:throw new Error()に分ける
         const { response } = error
@@ -35,9 +37,24 @@ export default defineComponent({
       }
     })
 
+    // Web Playback SDKはクライアントサイドのライブラリ
+    onMounted(() => {
+      // window.onSpotifyWebPlaybackSDKReady = () => {
+      //   const player = new Spotify.Player({
+      //     name: 'Spotify Timer',
+      //     getOAuthToken: document.cookie[0]
+      //   })
+      // }
+    })
+
+    const playbackFunc = () => {
+      console.log('hey')
+    }
+
     return {
       playlistTracks,
-      searchTracks
+      searchTracks,
+      playbackFunc
     }
   }
 })
