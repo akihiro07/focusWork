@@ -1,5 +1,6 @@
 import { IncomingMessage, ServerResponse } from "http"
 import url from "url"
+import axios from 'axios'
 import SpotifyWebApi from 'spotify-web-api-node'
 
 const credentials = {
@@ -23,6 +24,9 @@ export default ((req: IncomingMessage, res: ServerResponse) => {
       break
     case '/reccomendList':
       reccomendList(req, res)
+      break
+    case '/playback':
+      playback(req, res)
       break
     default:
       console.log('default')
@@ -76,6 +80,12 @@ const reccomendList = async (req: IncomingMessage, res: ServerResponse) => {
     // エラー内容をresponseのbodyに追加
     res.end(errors)
   }
+}
+
+const playback = async (req: IncomingMessage, res: ServerResponse) => {
+  await spotifyApi.play({"uris": ["spotify:track:7CjzBV5sLZVetxFmQrgkxs"]})
+  // axios.put('https://api.spotify.com/v1/me/player/play')
+  res.end()
 }
 
 const logout = () => {

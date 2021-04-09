@@ -12,7 +12,6 @@
 <script lang="ts">
 import { defineComponent, onBeforeMount, onMounted, Ref, ref, useAsync, useContext } from '@nuxtjs/composition-api'
 import { SpotifyWebApi } from 'spotify-web-api-ts'
-import '@types/spotify-web-playback-sdk'
 
 export default defineComponent({
   setup() {
@@ -37,23 +36,31 @@ export default defineComponent({
       }
     })
 
+    const deviceId = ref('')
     // Web Playback SDKはクライアントサイドのライブラリ
     onMounted(() => {
-      // window.onSpotifyWebPlaybackSDKReady = () => {
-      //   const player = new Spotify.Player({
-      //     name: 'Spotify Timer',
-      //     getOAuthToken: document.cookie[0]
-      //   })
-      // }
+      // TODO:cookie
+      window.onSpotifyWebPlaybackSDKReady = () => {
+        const player = new Spotify.Player({
+          name: 'Spotify Timer',
+          getOAuthToken: () => 'BQBeTj_vIxTgsReNz440g_vKPfPjuXtoJonaw0nufNojt4LmkYBoNYEXQTACWftbkM9FxM_9SimeNsiNJUB9X1XN6iJaqb_oDmGFvgrGl0whDEIunde9afhH3BhLqhhgCOgS-huhCm6ol9TeiREQtJfxz2WyXSw-ifhvw-2udnmuXW5yvD_2DvTtOXgu8N6bVZQ_1vhg2bQUuncaIhQHd8ItrdCHyzc3k6f8B-wsQo7H2RfvyVjf_T8vWQ'
+        })
+
+        player.addListener('ready', ({ device_id }) => {
+            deviceId.value = device_id
+        })
+        player.connect()
+      }
     })
 
     const playbackFunc = () => {
-      console.log('hey')
+      app.$axios.$post('/api/playback')
     }
 
     return {
       playlistTracks,
       searchTracks,
+      deviceId,
       playbackFunc
     }
   }
