@@ -1905,7 +1905,7 @@
   dependencies:
     "@types/spotify-api" "*"
 
-"@types/spotify-web-playback-sdk@^0.1.8":
+"@types/spotify-web-playback-sdk@0.1.8":
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/@types/spotify-web-playback-sdk/-/spotify-web-playback-sdk-0.1.8.tgz#59a06ddae72401918c04368409dbb0c73d1bcfe2"
   integrity sha512-WvclWvBwzf7PD16DG8NIVRHhDvb40tkY0XxVdF+BVYXgJ7qD5mkHAibq0Q+jaqQozwfrUB7XlSdjk0A4PrbA5w==
@@ -4129,7 +4129,7 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
-dayjs@^1.10.4:
+dayjs@1.10.4:
   version "1.10.4"
   resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.4.tgz#8e544a9b8683f61783f570980a8a80eaf54ab1e2"
   integrity sha512-RI/Hh4kqRc1UKLOAf/T5zdMMX5DQIlDxwUe3wSyMMnEbGunnpENCdbUgM+dW7kXidZqCttBrmw7BhN4TMddkCw==
@@ -10266,7 +10266,7 @@ spotify-web-api-node@5.0.2:
   dependencies:
     superagent "^6.1.0"
 
-spotify-web-api-ts@^1.4.5:
+spotify-web-api-ts@1.4.5:
   version "1.4.5"
   resolved "https://registry.yarnpkg.com/spotify-web-api-ts/-/spotify-web-api-ts-1.4.5.tgz#4a3fd1c0597807580cf89cc4ad3861304a611145"
   integrity sha512-IBX7xQMnLqsJJo+pKRqA3qcATA00W6ZDMIXOKZ3hCFdI380vG36FLNNm2qq62/mKRERQpP1ybp+POMqOjza0Jg==
