@@ -19,7 +19,7 @@
     "@types/spotify-web-api-node": "5.0.2",
     "@types/spotify-web-playback-sdk": "^0.1.8",
     "core-js": "3.9.0",
-    "dayjs": "^1.10.4",
+    "dayjs": "1.11.5",
     "node-sass": "5.0.0",
     "nuxt": "2.15.2",
     "sass-loader": "10.1.1",
