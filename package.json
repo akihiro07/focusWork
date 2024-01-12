@@ -21,13 +21,13 @@
     "core-js": "3.9.0",
     "dayjs": "^1.10.4",
     "node-sass": "5.0.0",
-    "nuxt": "2.15.2",
+    "nuxt": "2.17.3",
     "sass-loader": "10.1.1",
     "spotify-web-api-node": "5.0.2",
     "spotify-web-api-ts": "^1.4.5"
   },
   "devDependencies": {
-    "@nuxt/types": "2.15.2",
+    "@nuxt/types": "2.17.3",
     "@nuxt/typescript-build": "2.0.6",
     "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/eslint-config-typescript": "5.0.0",
