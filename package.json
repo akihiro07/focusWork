@@ -18,7 +18,7 @@
     "@nuxtjs/pwa": "3.3.5",
     "@types/spotify-web-api-node": "5.0.2",
     "@types/spotify-web-playback-sdk": "^0.1.8",
-    "core-js": "3.9.0",
+    "core-js": "3.36.1",
     "dayjs": "^1.10.4",
     "node-sass": "5.0.0",
     "nuxt": "2.15.2",
